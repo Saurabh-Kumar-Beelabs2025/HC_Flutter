@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutternew/ui_screens/onbording.dart';
 
@@ -40,7 +42,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  @override
+  void initState() {
+    super.initState();
 
+    // Add a delay of 5 seconds and then navigate to the next screen
+    Timer(
+      Duration(seconds: 5),
+          () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Onbording(),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,6 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             Image.asset('assets/image/handoverlogo.png'),
 
+/*
 
             ElevatedButton(
                 onPressed: () {
@@ -75,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ));
                 }, child: null,
             )
+*/
 
 
           ],
